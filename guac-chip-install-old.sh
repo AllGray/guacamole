@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Check if user is root
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+VERSION="0.9.11"
+SERVER=$(curl -s 'https://www.apache.org/dyn/closer.cgi?as_json=1' | jq --raw-output '.preferred|rtrimstr("/")')
 
 # Grab a password for MySQL Root
 read -s -p "Enter the password that will be used for MySQL Root: " mysqlrootpassword
@@ -19,9 +16,6 @@ apt-get update
 apt-get -y install build-essential libcairo2-dev libjpeg62-turbo-dev libpng12-dev libossp-uuid-dev libavcodec-dev libavutil-dev \
 libswscale-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libpulse-dev libssl-dev \
 libvorbis-dev libwebp-dev mysql-server mysql-client mysql-common mysql-utilities tomcat8 freerdp ghostscript
-
-VERSION="0.9.11"
-SERVER=$(curl -s 'https://www.apache.org/dyn/closer.cgi?as_json=1' | jq --raw-output '.preferred|rtrimstr("/")')
 
 # If Apt-Get fails to run completely the rest of this isn't going to work...
 if [ $? != 0 ]
