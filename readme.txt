@@ -1,7 +1,6 @@
 wget https://raw.githubusercontent.com/AllGray/guacamole/master/guac-chip-install.sh
-chmod +x guac-chip-install.sh
-apt-get -y install dos2unix jq
-dos2unix guac-chip-install.sh
+sudo chmod +x guac-chip-install.sh
+sudo apt-get -y install jq
 ./guac-chip-install.sh
 
 
