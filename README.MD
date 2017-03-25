@@ -1,6 +1,6 @@
-wget https://raw.githubusercontent.com/AllGray/guacamole/master/guac-chip-install.sh
-sudo chmod +x guac-chip-install.sh
-sudo ./guac-chip-install.sh
+wget https://raw.githubusercontent.com/AllGray/guacamole/master/guac-chip-install.sh  
+sudo chmod +x guac-chip-install.sh  
+sudo ./guac-chip-install.sh  
 
 
 After the installation is finished, go to your.local.ip.address:8080
