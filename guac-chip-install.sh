@@ -26,7 +26,7 @@ SERVER=$(curl -s 'https://www.apache.org/dyn/closer.cgi?as_json=1' | jq --raw-ou
 # If Apt-Get fails to run completely the rest of this isn't going to work...
 if [ $? != 0 ]
 then
-    echo "make sure to run: sudo apt-get update && sudo apt-get upgrade"
+    echo "Make sure to run: sudo apt-get update && sudo apt-get upgrade"
     exit
 fi
 
