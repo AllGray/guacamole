@@ -1,5 +1,5 @@
 wget https://raw.githubusercontent.com/AllGray/guacamole/master/guac-chip-install.sh  
-sudo chmod +x guac-chip-install.sh  
+chmod +x guac-chip-install.sh  
 sudo ./guac-chip-install.sh  
 
 
