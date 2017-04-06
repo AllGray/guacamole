@@ -6,6 +6,25 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+# Clear the screen
+reset
+
+# Start info
+echo "+-----------------------------------------------------------+"
+echo "|                   CHOOSE A NEW HOSTNAME                   |"
+echo "| If you want to keep chip as your hostname just type chip  |"
+echo "|  Be avare that using chip as hostname can cause problems  |"
+echo "|   if you have more than 1 chip connected to you network   |"
+echo "+-----------------------------------------------------------+"
+
+# Choose a new host name
+read -p "Choose your new host name: " hostname_new
+
+# Setup hostname
+read -r hostname_old < /etc/hostname
+sed -i "s/$hostname_old/$hostname_new/g" /etc/hostname
+sed -i "s/$hostname_old/$hostname_new/g" /etc/hosts
+
 # Grab a password for MySQL Root
 read -s -p "Enter the password that will be used for MySQL Root: " mysqlrootpassword
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassword"
@@ -102,17 +121,20 @@ reset
 
 # Finishing up
 echo "+---------------------------------------------------------------------+"
-echo "|                         Congratulation!                             |"
-echo "|                      Your install is done.                          |"
-echo "|                       You can now access                            |"
-echo "|              http://your.local.ip.address/guacamole                 |"
-echo "|                        from your browser                            |"
+echo "|                           Congratulation!                           |"
+echo "|                        Your install is done!                        |"
+echo "|                   Your HOSTNAME is $hostname_new                    |"
+echo "|            If you don't have Bonjour/Netatalk installed,            |"
+echo "|             Head over to http://your.local.ip/guacamole             |"
 echo "|                                                                     |"
-echo "|                       To finish your setup                          |"
+echo "|              if you DO have Bonjour/Netatalk installed              |"
+echo "|          Head over to http://$hostname_new.local/guacamole          |"
+echo "|                        To finish your setup!                        |"
 echo "|                                                                     |"
+echo "| Username:     guacadmin                                             |"
+echo "| Password:     guacadmin                                             |"
 echo "|                                                                     |"
-echo "|                                                                     |"
-echo "|                                                                     |"
-echo "|                                                                     |"
+echo "|    After you log in for the first time, create a new admin user!    |"
+echo "|       Log in as your new admin user and remove guacadmin user       |"
 echo "|            This installer was brought to you by AllGray!            |"
 echo "+---------------------------------------------------------------------+"
