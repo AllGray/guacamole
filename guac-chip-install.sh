@@ -96,3 +96,20 @@ cat guacamole-auth-jdbc-${VERSION}-incubating/mysql/schema/*.sql | mysql -u root
 # Cleanup
 rm -rf guacamole-*
 rm -rf mysql-connector-java-5.1.41*
+
+# Finishing up
+echo "+---------------------------------------------------------------------+"
+echo "|                         Congratulation!                             |"
+echo "|                      Your install is done.                          |"
+echo "|                       You can now access                            |"
+echo "|              http://your.local.ip.address/guacamole                 |"
+echo "|                        from your browser                            |"
+echo "|                                                                     |"
+echo "|                       To finish your setup                          |"
+echo "|                                                                     |"
+echo "|                                                                     |"
+echo "|                                                                     |"
+echo "|                                                                     |"
+echo "|                                                                     |"
+echo "|            This installer was brought to you buy AllGray            |"
+echo "+---------------------------------------------------------------------+"
