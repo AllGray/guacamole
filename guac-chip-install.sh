@@ -97,6 +97,9 @@ cat guacamole-auth-jdbc-${VERSION}-incubating/mysql/schema/*.sql | mysql -u root
 rm -rf guacamole-*
 rm -rf mysql-connector-java-5.1.41*
 
+# Clear screen
+reset
+
 # Finishing up
 echo "+---------------------------------------------------------------------+"
 echo "|                         Congratulation!                             |"
